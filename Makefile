@@ -13,10 +13,10 @@
 TARGET = Automata
 
 # Lista de archivos fuente(.cc)
-SOURCES = alfabeto.cc Automata.cc cliente_automata.cc Estado.cc lectura_dfa.cc tools.cc
+SOURCES = alfabeto.cc Automata.cc cadena.cc cliente_automata.cc Estado.cc lectura.cc tools.cc
 
 # Dependencias de los archivos fuente 
-DEPENDENCIES = alfabeto.h Automata.h Estado.h lectura_dfa.h tools.h
+DEPENDENCIES = alfabeto.h Automata.h cadena.h Estado.h lectura.h tools.h
 
 # Opciones de compilación
 CXX = g++

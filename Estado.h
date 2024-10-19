@@ -27,6 +27,8 @@ class Estado {
 
     ~Estado() {};
 
-  private:
-    std::multimap<char, int> estado_; // clave->valor(simbolo->numero estado siguiente)
+  private: 
+    char nombre_;
+    // for(auto& const i : mapa) i.first_ i.second_
+    std::multimap<char, char> transiciones_; // clave->valor(simbolo->numero estado siguiente)
 };

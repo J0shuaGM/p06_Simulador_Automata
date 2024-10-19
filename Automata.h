@@ -29,8 +29,8 @@ class Automata {
 	  ~Automata() {}
 
 		// Getters
-    int getEstadoActual(void);
-    int getEstadoInicial(void); 
+    //int getEstadoActual(void);
+    //int getEstadoInicial(void); 
 
     // Setters
     void setEstadoInicial(int estado_inicial);
@@ -44,4 +44,4 @@ class Automata {
 																		 // de aceptacion del automata
     std::vector<Estado> estados_; // Atributo de la clase que contiene un vector con todos los
 																	// estados del automata
-}
+};

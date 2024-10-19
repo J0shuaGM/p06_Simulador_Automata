@@ -19,7 +19,7 @@
 #include <fstream>
 #include <string>
 
-#include "lectura_dfa.h"
+#include "lectura.h"
 #include "alfabeto.h"
 #include "Automata.h"
 
@@ -37,7 +37,7 @@ void lectura_dfa(std::string fichero_entrada) {
   std::string datos;
   Alfabeto alfabeto;
   Automata automata;
-
+  Estado estado;
   int contador{1};
   int numero_estados{0};
 
@@ -45,14 +45,28 @@ void lectura_dfa(std::string fichero_entrada) {
     if(contador == 1) {
       alfabeto = Alfabeto(datos);
       ++contador;
-    }
-    if (contador == 2) {  
+    } else if (contador == 2) {  
       numero_estados = std::stoi(datos);
       ++contador;
-    }
-    if (contador == 3) {
+    } else if (contador == 3) {
       int estado_inicial = std::stoi(datos);
       automata.setEstadoInicial(estado_inicial);
-    }
+      ++contador;
+    } else estado = Estado(datos);
   }
+}
+
+
+
+void lectura_cadenas(std::string fichero_entrda) {
+
+  std::ifstream input(fichero_entrda);
+
+  if (!input.is_open()) {
+    std::cerr << "El fichero de lectura de cadenas no se ha podido abrir" << std::endl;
+    exit(EXIT_FAILURE);
+  }
+
+  
+
 }

@@ -23,6 +23,6 @@
 
 
 
-Automata::setEstadoInicial(int estado_inicial) {
+void Automata::setEstadoInicial(int estado_inicial) {
   estado_inicial_ = estado_inicial;
 }

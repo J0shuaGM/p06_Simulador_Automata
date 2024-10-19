@@ -18,7 +18,7 @@
 #include <iostream>
 
 #include "tools.h"
-#include "lectura_dfa.h"
+#include "lectura.h"
 #include "alfabeto.h"
 
 /**

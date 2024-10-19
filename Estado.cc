@@ -18,8 +18,17 @@
 
 #include "Estado.h"
 
+/**
+* @brief Constructor parametrizado de la clase Estado
+* @param datos Cadena con los datos con los que se construirá el estado.
+*/
 Estado::Estado(std::string datos) {
-  for (char caracteres : datos) {
-    
+  nombre_ = datos[0]; 
+  for (int i{4}; i < datos.length(); i += 2) {
+    if (i > 4 && i % 2 == 0) { 
+      transiciones_.insert(std::make_pair(datos[i], datos[i + 2])); 
+      i += 2;
+    }
   }
 }
+

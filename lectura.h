@@ -19,5 +19,7 @@
 #include <fstream>
 #include <string>
 
-void lectura_dfa(std::string fichero_entrada);
+void lectura_dfa(std::string);
+
+void lectura_cadenas(std::string);
 
