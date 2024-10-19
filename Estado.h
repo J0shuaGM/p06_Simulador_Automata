@@ -15,6 +15,9 @@
 // Historial de revisiones
 // 17/09/2024 - Creacion (primera version) del codigo
 
+#ifndef ESTADO_H
+#define ESTADO_H
+
 #include <iostream>
 
 #include <map>
@@ -23,7 +26,7 @@ class Estado {
   public:
     Estado(void) {};
     Estado(std::string datos);
-
+    char getId() { return nombre_; }
 
     ~Estado() {};
 
@@ -32,3 +35,6 @@ class Estado {
     // for(auto& const i : mapa) i.first_ i.second_
     std::multimap<char, char> transiciones_; // clave->valor(simbolo->numero estado siguiente)
 };
+
+
+#endif

@@ -20,6 +20,8 @@
 #include "tools.h"
 #include "lectura.h"
 #include "alfabeto.h"
+#include "Automata.h"
+
 
 /**
 * @brief Función del cliente principal
@@ -28,8 +30,10 @@
 */
 int main(int argc, char* argv[]) {
 	Usage(argc, argv);
+  Automata automata;
   std::string fichero_dfa{argv[1]}; 
   std::string fichero_cadenas{argv[2]};
-  lectura_dfa(fichero_dfa);
+  lectura_dfa(fichero_dfa, automata);
+  lectura_cadenas(fichero_cadenas);
   return 0;
 }

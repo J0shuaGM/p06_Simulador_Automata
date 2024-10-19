@@ -19,7 +19,11 @@
 #include <fstream>
 #include <string>
 
-void lectura_dfa(std::string);
+#include "alfabeto.h"
+#include "Automata.h"
+#include "cadena.h"
+
+void lectura_dfa(std::string, Automata& automata);
 
 void lectura_cadenas(std::string);
 

@@ -15,6 +15,9 @@
 // Historial de revisiones
 // 17/09/2024 - Creacion (primera version) del codigo
 
+#ifndef AUTOMATA_H
+#define AUTOMATA_H
+
 #include <iostream>
 #include <vector> // in my opinion
 
@@ -29,11 +32,14 @@ class Automata {
 	  ~Automata() {}
 
 		// Getters
-    //int getEstadoActual(void);
-    //int getEstadoInicial(void); 
+    std::vector<Estado> getEstados(void) { return estados_; }
+    std::vector<Estado> getAceptacion(void) { return aceptacion_; } 
 
     // Setters
     void setEstadoInicial(int estado_inicial);
+    
+    void insertAceptacion(const Estado estado) { aceptacion_.push_back(estado); }
+		void insertEstado(const Estado estado) { estados_.push_back(estado); }
 
   
   private: 
@@ -45,3 +51,5 @@ class Automata {
     std::vector<Estado> estados_; // Atributo de la clase que contiene un vector con todos los
 																	// estados del automata
 };
+
+#endif

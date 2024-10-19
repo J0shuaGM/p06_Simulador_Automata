@@ -20,12 +20,10 @@
 #include <string>
 
 #include "lectura.h"
-#include "alfabeto.h"
-#include "Automata.h"
 
 
 
-void lectura_dfa(std::string fichero_entrada) {
+void lectura_dfa(std::string fichero_entrada, Automata& automata) {
 
   std::ifstream input(fichero_entrada); 
 
@@ -36,7 +34,6 @@ void lectura_dfa(std::string fichero_entrada) {
 
   std::string datos;
   Alfabeto alfabeto;
-  Automata automata;
   Estado estado;
   int contador{1};
   int numero_estados{0};
@@ -53,6 +50,8 @@ void lectura_dfa(std::string fichero_entrada) {
       automata.setEstadoInicial(estado_inicial);
       ++contador;
     } else estado = Estado(datos);
+    automata.insertEstado(estado);
+    if (datos[2] == '1') automata.insertAceptacion(estado);
   }
 }
 
@@ -67,6 +66,12 @@ void lectura_cadenas(std::string fichero_entrda) {
     exit(EXIT_FAILURE);
   }
 
-  
+  std::string linea;
+  Cadena cadena; 
 
+
+  while(std::getline(input, linea)) {
+    cadena = Cadena(linea);
+    std::cout << cadena << std::endl;
+  }
 }
