@@ -26,7 +26,10 @@ class Estado {
   public:
     Estado(void) {};
     Estado(std::string datos);
+
+    // Getters
     char getId() { return nombre_; }
+    std::multimap<char, char> getTransiciones(void) const { return transiciones_; }
 
     ~Estado() {};
 

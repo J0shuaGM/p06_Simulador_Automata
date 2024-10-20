@@ -36,9 +36,11 @@ class Cadena {
     // Metodos
     int longitud(void);
     void reverse(void);
-    Lenguaje prefijos(void);
-    Lenguaje sufijos(void);
     void clear(void) { cadena_.clear(); }
+
+    //getters
+    int getLongitud(void) { return longitud_; }
+    std::vector<char> getCadena(void) { return cadena_; }
 
 
     // Sobrecarga de operadores

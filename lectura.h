@@ -23,7 +23,8 @@
 #include "Automata.h"
 #include "cadena.h"
 
-void lectura_dfa(std::string, Automata& automata);
+void lectura_dfa(std::string, Automata& automata, Alfabeto& alfabeto);
 
-void lectura_cadenas(std::string);
+void lectura_cadenas(std::string, Automata& automata, Alfabeto& Alfabeto);
+
 

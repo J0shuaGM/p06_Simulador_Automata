@@ -19,10 +19,33 @@
 #include <map>
 
 #include "Automata.h"
-
+#include "cadena.h"
+#include "Estado.h"
 
 
 
 void Automata::setEstadoInicial(int estado_inicial) {
   estado_inicial_ = estado_inicial;
+}
+
+
+
+
+
+void Automata::setSize(int numero_estados) {
+  estados_.resize(numero_estados);
+}
+
+
+
+
+void Automata::simulacion(Cadena cadena) {
+  for(const Estado& estado : estados_) {
+    for(const auto& transicion : estado.getTransiciones()) {
+      char simbolo_entrada = transicion.first;
+      char simbolo_salida = transicion.second;
+
+      std::cout << simbolo_entrada << " " << simbolo_salida << std::endl;  
+    }
+  }
 }

@@ -23,6 +23,7 @@
 #include "Automata.h"
 
 
+
 /**
 * @brief Función del cliente principal
 * @param argc Parametro con el numero de argumentos que hay en la línea de ejecucion
@@ -31,9 +32,10 @@
 int main(int argc, char* argv[]) {
 	Usage(argc, argv);
   Automata automata;
+  Alfabeto alfabeto;
   std::string fichero_dfa{argv[1]}; 
   std::string fichero_cadenas{argv[2]};
-  lectura_dfa(fichero_dfa, automata);
-  lectura_cadenas(fichero_cadenas);
+  lectura_dfa(fichero_dfa, automata, alfabeto);
+  lectura_cadenas(fichero_cadenas, automata, alfabeto);
   return 0;
 }
