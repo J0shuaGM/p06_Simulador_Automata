@@ -24,8 +24,8 @@
 
 
 
-void Automata::setEstadoInicial(int estado_inicial) {
-  estado_inicial_ = estado_inicial;
+void Automata::setEstadoActual(const Estado& estado_actual) {
+  estado_actual_ = estado_actual;
 }
 
 
@@ -39,13 +39,35 @@ void Automata::setSize(int numero_estados) {
 
 
 
-void Automata::simulacion(Cadena cadena) {
-  for(const Estado& estado : estados_) {
-    for(const auto& transicion : estado.getTransiciones()) {
-      char simbolo_entrada = transicion.first;
-      char simbolo_salida = transicion.second;
-
-      std::cout << simbolo_entrada << " " << simbolo_salida << std::endl;  
+bool Automata::simulacion(Cadena cadena) {
+  char caracteres;
+  bool encontrado;
+  Estado estado_inicial = estado_actual_; 
+  for(int i{0}; i < cadena.longitud(); ++i) {
+    caracteres = cadena.getCadena()[i];
+    //for(const Estado& estado : estados_actuales) {
+      for(const auto& transicion : estado_actual_.getTransiciones()) { 
+        encontrado = false;       
+        if(caracteres == transicion.first) {
+          for(const auto& estado : estados_) {
+            if(transicion.second == estado.getNombre()) {
+              estado_actual_ = estado;  
+              encontrado = true;
+              break;
+            }
+          }
+        }
+        if(encontrado) break;
+      }
+    //}
+  }
+  bool aceptacion{false};
+  for(const auto& i : aceptacion_) {
+    if(i.getNombre() == estado_actual_.getNombre()) {
+      aceptacion = true;  
+      break;
     }
   }
+  estado_actual_ = estado_inicial;
+  return aceptacion;
 }

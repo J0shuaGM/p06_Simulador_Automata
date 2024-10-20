@@ -35,21 +35,21 @@ class Automata {
 		// Getters
     std::vector<Estado> getEstados(void) const { return estados_; }
     std::vector<Estado> getAceptacion(void) const { return aceptacion_; } 
-    int getInicial(void) const { return estado_inicial_; }
+    char getEstadoActual() { return estado_actual_.getNombre(); }
+    
 
     // Setters
-    void setEstadoInicial(int estado_inicial);
+    void setEstadoActual(const Estado& estado_actual);
     void setSize(int);
     
     // Metodos
     void insertAceptacion(const Estado estado) { aceptacion_.push_back(estado); }
 		void insertEstado(const Estado estado) { estados_.push_back(estado); }
-    void simulacion(Cadena);
+    bool simulacion(Cadena);
   
   private: 
-		int estado_actual_; // Atributo de la clase que contiene el identificador del estado actual
+		Estado estado_actual_; // Atributo de la clase que contiene el identificador del estado actual
 												// en el que se encuentra el automata
-		int estado_inicial_;
     std::vector<int> estados_actuales_; // Atributo de la clase que contiene un vector con los estados 
                                         // 
     std::vector<Estado> aceptacion_; // Atributo de la clase que contiene un vector con los estados

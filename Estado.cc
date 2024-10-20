@@ -32,3 +32,12 @@ Estado::Estado(std::string datos) {
   }
 }
 
+
+
+Estado::Estado(const Estado& estado_copia) {
+  transiciones_.clear();
+  for (const auto& i : estado_copia.getTransiciones()) {
+    transiciones_.insert(i);
+  }
+  nombre_ = estado_copia.getNombre();
+}

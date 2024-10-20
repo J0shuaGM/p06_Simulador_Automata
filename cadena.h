@@ -39,7 +39,6 @@ class Cadena {
     void clear(void) { cadena_.clear(); }
 
     //getters
-    int getLongitud(void) { return longitud_; }
     std::vector<char> getCadena(void) { return cadena_; }
 
 

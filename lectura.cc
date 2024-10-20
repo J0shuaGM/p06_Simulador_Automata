@@ -36,6 +36,7 @@ void lectura_dfa(std::string fichero_entrada, Automata& automata, Alfabeto& alfa
   Estado estado;
   int contador{1};
   int numero_estados{0};
+  char estado_inicial;
 
   while (std::getline(input, datos)) {
     if(contador == 1) {
@@ -45,8 +46,7 @@ void lectura_dfa(std::string fichero_entrada, Automata& automata, Alfabeto& alfa
       numero_estados = std::stoi(datos);
       ++contador;
     } else if (contador == 3) {
-      int estado_inicial = std::stoi(datos);
-      automata.setEstadoInicial(estado_inicial);
+      estado_inicial = datos[0];
       ++contador;
       break;
     } 
@@ -56,6 +56,7 @@ void lectura_dfa(std::string fichero_entrada, Automata& automata, Alfabeto& alfa
     std::getline(input, datos);
     estado = Estado(datos); 
     if (datos[2] == '1') automata.insertAceptacion(estado);
+    if (datos[0] == estado_inicial) automata.setEstadoActual(estado);
     automata.insertEstado(estado);
   }
 }
@@ -77,7 +78,7 @@ void lectura_cadenas(std::string fichero_entrda, Automata& automata, Alfabeto& a
 
   while(std::getline(input, linea)) {
     cadena = Cadena(linea);
-    automata.simulacion(cadena);
+    std::cout << cadena << (automata.simulacion(cadena) ? " --- Aceptada\n" : " --- Rechazada\n");
   }
 }
 
