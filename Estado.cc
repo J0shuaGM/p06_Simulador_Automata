@@ -33,7 +33,10 @@ Estado::Estado(std::string datos) {
 }
 
 
-
+/**
+* @brief Constructor de copia de la clase Estado
+* @param estado_copia objeto del tipo Estado que contiene el estado a copiar
+*/
 Estado::Estado(const Estado& estado_copia) {
   transiciones_.clear();
   for (const auto& i : estado_copia.getTransiciones()) {

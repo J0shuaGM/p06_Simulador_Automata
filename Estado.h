@@ -24,21 +24,22 @@
 
 class Estado {
   public:
-    Estado(void) {};
-    Estado(std::string datos);
-    Estado(const Estado&);
+    //Constructores
+    Estado(void) {}; // Por defecto
+    Estado(std::string datos); // Parametrizado
+    Estado(const Estado&); // Constructor de copia
+
+    // Destructor
+    ~Estado() {};
+
     // Getters
     char getNombre() { return nombre_; }
     std::multimap<char, char> getTransiciones(void) { return transiciones_; }
-
     char getNombre() const { return nombre_; }
     std::multimap<char, char> getTransiciones(void) const { return transiciones_; }    
 
-    ~Estado() {};
-
   private: 
     char nombre_;
-    // for(auto& const i : mapa) i.first_ i.second_
     std::multimap<char, char> transiciones_; // clave->valor(simbolo->numero estado siguiente)
 };
 

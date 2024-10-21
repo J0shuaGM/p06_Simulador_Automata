@@ -23,7 +23,10 @@
 #include "Estado.h"
 
 
-
+/**
+* @brief Metodo que establece el estado actual de automata
+* @param estado_actual parametro de tipo estado que contiene el estado actual de automata.
+*/
 void Automata::setEstadoActual(const Estado& estado_actual) {
   estado_actual_ = estado_actual;
 }
@@ -31,14 +34,20 @@ void Automata::setEstadoActual(const Estado& estado_actual) {
 
 
 
-
+/**
+* @brief Metodo que establece el tamaño del vector de estados del automata
+* @param numero_estados entero que contiene el numero de estados del automata
+*/
 void Automata::setSize(int numero_estados) {
   estados_.resize(numero_estados);
 }
 
 
 
-
+/**
+* @brief Metodo que simula el comportamiento del automata 
+* @param cadena objeto de tipo Cadena que contiene las cadenas a analizar por el automata
+*/
 bool Automata::simulacion(Cadena cadena) {
   char caracteres;
   bool encontrado;

@@ -23,6 +23,12 @@
 
 
 
+/**
+* @brief Funcion que lee los datos del fichero.dfa y construye el automata
+* @param fichero_entrada nombre del fichero que contiene los datos del dfa
+* @param automata objeto del tipo automata que contiene el automata correspondiente a los datos del fichero
+* @param alfabeto alfabeto que debe aceptar el automata
+*/
 void lectura_dfa(std::string fichero_entrada, Automata& automata, Alfabeto& alfabeto) {
 
   std::ifstream input(fichero_entrada); 
@@ -63,7 +69,12 @@ void lectura_dfa(std::string fichero_entrada, Automata& automata, Alfabeto& alfa
 
 
 
-
+/**
+* @brief Metodo que lee las cadenas a ser analizadas por el automata
+* @param fichero_entrada nombre del fichero que contiene las cadenas que debe analizar el automata
+* @param automata objeto del tipo automata que contiene el automata a simular
+* @param alfabeto objeto del tipo alfabeto que contiene el alfabeto a ser aceptado
+*/
 void lectura_cadenas(std::string fichero_entrda, Automata& automata, Alfabeto& alfabeto) {
 
   std::ifstream input(fichero_entrda);
